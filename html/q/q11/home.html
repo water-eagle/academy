@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>b</title>
+</head>
+
+<body>
+  <p>로그인에 성공하였습니다.</p>
+  <!-- a.html에서 id와 pw를 전송했는데 b에 받은 id와 pw값을 html로 어떻게 표시할 수 있어? -->
+  <!--
+    <div id="result">로그인에 성공하였습니다.</div>
+    <script>
+      function escapeHtml(s){
+        return s.replace(/[&<>\"']/g,function(c){
+          return {'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c];
+        });
+      }
+      const params = new URLSearchParams(location.search);
+      const id = params.post('id') || '';
+      const pw = params.post('password') || '';
+      const result = document.getElementById('result');
+      if(id || pw){
+        result.innerHTML = '<p>아이디: ' + escapeHtml(id) + '</p>' +
+                           '<p>비밀번호: ' + escapeHtml(pw) + '</p>';
+      } else {
+        result.textContent = '로그인 정보가 전달되지 않았습니다.';
+      }
+    </script>
+    -->
+  <script>
+    r = 0;
+  </script>
+</body>
+
+</html>

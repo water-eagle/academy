@@ -1,0 +1,44 @@
+<!-- 🍎[pj]{내 홈페이지 메인 만들기}🍇 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 홈페이지 제목 -->
+  <div id="title">
+    <h1>회원가입</h1>
+  </div>
+
+  <!-- 회원가입 페이지 -->
+  <div id="register">
+    <form id="registerForm" action="b.html" method="post">
+      아이디:&nbsp;<input type="text" name="id" id="id"><br>
+      <br>
+      비밀번호:&nbsp;<input type="password" name="password" id="pw"><br>
+      성별: <input type="radio" name="gender">남자
+      <input type="radio" name="gender">여자
+      <input type="radio" name="gender" checked>비공개
+      <button type="submit">회원가입</button>
+    </form>
+  </div>
+  <!-- sumbit을 누르면 alert('회원가입 성공!');을 하고 싶은데 페이지를 들어가면 알림이 곧바로 떠 -->
+  <script>
+    (function () {
+      const form = document.getElementById("registerForm");
+      if (!form) return;
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert("회원가입 성공!");
+        // alert 후 실제로 폼을 전송하려면 아래 주석을 해제합니다.
+        e.target.submit();
+      });
+    })();
+  </script>
+</body>
+
+</html>

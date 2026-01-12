@@ -1,0 +1,41 @@
+#top,
+#bot {
+    display: flex;
+}
+
+#top_left {
+    background-color: red;
+    width: 100px;
+}
+
+#top_right {
+    background-color: orange;
+    width: 100px;
+}
+
+#mid {
+    background-color: yellow;
+    width: 100px;
+}
+
+
+#bot_left {
+    background-color: green;
+    width: 100px;
+}
+
+#bot_right {
+    background-color: blue;
+    width: 100px;
+}
+
+
+#cat {
+    img {
+        width: 100px;
+    }
+
+    b {
+        font-size: 12px;
+    }
+}
