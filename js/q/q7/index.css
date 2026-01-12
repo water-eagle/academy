@@ -1,0 +1,13 @@
+/* 7번고양이는 테두리를 황금색으로 나오게 처리 */
+#cat {
+  width: 30px;
+  border-radius: 3px;
+}
+
+#cat_lucky {
+  width: 30px;
+  border-style: dashed;
+  border-color: gold;
+  border-width: 3px;
+  border-radius: 3px;
+}

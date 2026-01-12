@@ -1,0 +1,36 @@
+/* 각각 %비율로 (ex. 10% 30% 20% 20% 20%)
+각각 다른 색상으로 표현 */
+
+#x {
+  display: flex;
+}
+
+#a {
+  background-color: salmon;
+  flex-basis: 10%;
+  width: 100px;
+}
+
+#b {
+  background-color: burlywood;
+  flex-basis: 25%;
+  width: 100px;
+}
+
+#c {
+  background-color: palegreen;
+  flex-basis: 20%;
+  width: 100px;
+}
+
+#d {
+  background-color: skyblue;
+  flex-basis: 15%;
+  width: 100px;
+}
+
+#e {
+  background-color: slateblue;
+  flex-basis: 30%;
+  width: 100px;
+}
