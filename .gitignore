@@ -696,7 +696,9 @@ $RECYCLE.BIN/
 *.zed/
 
 ### ###
-html/q/pj/*
+html/q/pj/
 
-js/q/q8/q008/*
-js/q/pj(example)
+js/q/q8/q008/
+js/q/pj(example)/
+
+java/KioskCatCafe(V0.0.9)/
