@@ -694,3 +694,9 @@ $RECYCLE.BIN/
 
 ### Zed ###
 *.zed/
+
+### ###
+html/q/pj/*
+
+js/q/q8/q008/*
+js/q/pj(example)
