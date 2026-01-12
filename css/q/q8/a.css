@@ -1,0 +1,10 @@
+div {
+  width: 400px;
+  height: 400px;
+  background-image: url("../../../../assets/kabo-p6yH8VmGqxo-unsplash.jpg");
+  background-repeat: no-repeat;
+
+  background-position: center top;
+
+  background-size: 200px 300px;
+}
