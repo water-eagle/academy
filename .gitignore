@@ -688,3 +688,9 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/java,python,dbeaver,react,reactnative,visualstudiocode,eclipse,intellij+all,windows,macos,linux
+
+# ---------- #
+# 추가 내용
+
+### Zed ###
+*.zed/
