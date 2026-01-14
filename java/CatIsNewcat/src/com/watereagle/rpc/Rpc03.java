@@ -1,0 +1,76 @@
+package com.watereagle.rpc;
+
+import java.util.Scanner;
+
+public class Rpc03 { // 무한 루프 이용 단판 겜이 아닌 여러 판 가능하게 처리
+
+	void run() {
+		while (true) {
+			String cmd = procRps();
+			if(cmd.equals("x")) {
+				System.out.println("게임이 종료됐습니다.");
+				break;
+			} else {
+				System.out.println("");
+			}
+		}
+	}
+	String procRps() {
+		System.out.println("[가위, 바위, 보 중 하나를 입력하세요. x는 게임 종료.]");
+		Scanner sc = new Scanner(System.in);
+		String cmd = sc.next();
+
+		int r = (int) ((Math.random() * 2) + 1); // 1~3 까지 랜덤하게 뽑음
+		// 1가위 2바위 3보
+		String com = "오류";
+		switch (cmd) {
+		case "가위": // 가위
+			switch (r) {
+			case 1:
+				System.out.println("비겼어요");
+				break;
+			case 2:
+				System.out.println("졌어요");
+				break;
+			case 3:
+				System.out.println("이겼어요");
+			default:
+				break;
+			}
+			break;
+		case "바위":
+			switch (r) {
+			case 1:
+				System.out.println("이겼어요");
+				break;
+			case 2:
+				System.out.println("비겼어요");
+				break;
+			case 3:
+				System.out.println("졌어요");
+			default:
+				break;
+			}
+		case "보":
+			switch (r) {
+			case 1:
+				System.out.println("졌어요");
+				break;
+			case 2:
+				System.out.println("이겼어요");
+				break;
+			case 3:
+				System.out.println("비겼어요");
+				break;
+			default:
+				break;
+			}
+		case "x":
+			break;
+		default:
+			System.out.println("랜덤 값이 전송되지 않았습니다.");
+			break;
+		}
+		return cmd;
+	}
+}
