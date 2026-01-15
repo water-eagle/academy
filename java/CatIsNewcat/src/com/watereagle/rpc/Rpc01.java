@@ -2,9 +2,10 @@ package com.watereagle.rpc;
 
 import java.util.Scanner;
 
-public class rpc01 {
+public class Rpc01 {
 
-	public static void main(String[] args) {
+	// public static void main(String[] args) {
+	void run() {
 		// TODO Auto-generated method stub
 		System.out.println("[가위, 바위, 보 중 하나를 입력하세요]");
 		Scanner sc = new Scanner(System.in);
@@ -24,6 +25,7 @@ public class rpc01 {
 				break;
 			case 3:
 				System.out.println("이겼어요");
+				break;
 			default:
 				break;
 			}
@@ -38,6 +40,7 @@ public class rpc01 {
 				break;
 			case 3:
 				System.out.println("졌어요");
+				break;
 			default:
 				break;
 			}
