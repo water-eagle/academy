@@ -6,7 +6,7 @@ enum Day {
 
 	private int value;
 
-	private Day(int value) { // 예시 치킨나이트상시{상수}({int-정수}11{이라는 값})
+	private Day(int value) { // Day라는 enum은 키(int값)
 		this.value = value;
 	}
 
