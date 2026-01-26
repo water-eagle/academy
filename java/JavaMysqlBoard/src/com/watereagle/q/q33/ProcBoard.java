@@ -14,6 +14,7 @@ public class ProcBoard {
 	ResultSet result = null;
 
 	void run() {
+		Display.showTitle();
 		dbInit();
 
 		Scanner sc = new Scanner(System.in);
