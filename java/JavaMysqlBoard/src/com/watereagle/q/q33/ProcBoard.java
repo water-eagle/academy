@@ -17,12 +17,17 @@ public class ProcBoard {
 		dbInit();
 
 		Scanner sc = new Scanner(System.in);
-
-		System.out.println("글제목을 입력해주세요:");
+		System.out.println("글 제목을 입력해주세요:");
 		String title = sc.next();
+		System.out.println("글 내용을 입력해주세요:");
+		String description = sc.next();
+		System.out.println("작성자 id 입력해주세요:");
+		String id = sc.next();
 
+		
 		String x = String.format("insert into board (b_title,b_id,b_datetime,b_text,b_hit) "
 				+ "values ('%s','kitty',now(),'콘솔프로그램에서 작성한 글입니다. 글글.....글....',0);", title);
+		System.out.println("SQL로그: "+x);
 		dbExecuteUpdate(x);
 	}
 
