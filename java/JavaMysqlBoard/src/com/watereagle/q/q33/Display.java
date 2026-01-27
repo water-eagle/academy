@@ -15,5 +15,6 @@ public class Display {
 	static public void showMainMenu() {
 		System.out.println(MAIN_MENU_BAR);
 		System.out.println(MAIN_MENU);
+		System.out.println(MAIN_MENU_BAR);
 	}
 }
