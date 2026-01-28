@@ -1,4 +1,4 @@
-package com.watereagle.q.q33;
+package com.watereagle.q.q33.mysqltest;
 
 public class Main {
 
