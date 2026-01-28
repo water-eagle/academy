@@ -9,48 +9,17 @@ import com.watereagle.q.q33.util.Cw;
 import com.watereagle.q.q33.util.Db;
 
 public class ProcBoard {
-	public static final int PER_PAGE = 3;
-
-	Scanner sc = new Scanner(System.in);
-
 	void run() {
 		Display.showTitle();
 		Db.dbInit();
-		int startIndex = 0; // 현재 페이지의 첫 글 인덱스
-		int currentPage = 1; // 현재 페이지
 
 		loop: while (true) {
 			Db.dbPostCount();
 			Display.showMainMenu();
-			String cmd = Ci.r("명령입력: ");
+			String cmd = Ci.r("명령입력");
 			switch (cmd) {
 			case "1": // 글리스트
-				startIndex = (currentPage - 1) * PER_PAGE;
-
-				System.out.println("==========================================");
-				System.out.println("================= 글리스트 ==================");
-				System.out.println("==========================================");
-				System.out.println("글번호 글제목 작성시간 작성자ID");
-				try {
-					// todo:
-					// 임시로 페이지당 3개 글 리스트 출력하겠음.
-					// 1페이지 고정
-//					select * from board 6,3;
-//					select * from board limit 0,3; <<<<
-					String readSql = "SELECT * FROM board LIMIT " + startIndex + ", " + PER_PAGE;
-					Cw.wn("전송한 SQL문: " + readSql);
-					Db.result = Db.st.executeQuery(readSql);
-
-					while (Db.result.next()) { // 결과를 하나씩 빼기. 더 이상 없으면(행 수가 끝나면) false 리턴됨.
-						String no = Db.result.getString("b_no");
-						String title = Db.result.getString("b_title");
-						String id = Db.result.getString("b_id");
-						String datetime = Db.result.getString("b_datetime");
-						Cw.wn(no + " " + title + " " + id + " " + datetime);
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				ProcList.run();
 				break;
 
 			case "2": // 글읽기
@@ -58,9 +27,10 @@ public class ProcBoard {
 				try {
 					Db.result = Db.st.executeQuery("SELECT * FROM board WHERE b_no=" + readNo);
 					Db.result.next(); // 결과를 하나씩 빼기, 더 이상 없으면(행 수가 끝나면) false가 리턴됨
+
 					String title = Db.result.getString("b_title"); // p_name 필드(열) 의 데이터 꺼내기(1개 꺼낸거에서)
-					String content = Db.result.getString("b_text");
 					Cw.wn("글 제목: " + title);
+					String content = Db.result.getString("b_text");
 					Cw.wn("글 내용: " + content);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -73,27 +43,26 @@ public class ProcBoard {
 				String id = Ci.rl("작성자 id 입력해주세요");
 
 				try {
-					Db.st.executeUpdate("INSERT INTO BOARD (b_title,b_id,b_datetime,b_text,b_hit) " + "values ('"
+					Db.st.executeUpdate("INSERT INTO board (b_title, b_id, b_datetime, b_text, b_hit) " + "values ('"
 							+ title + "', '" + id + "', now(), '" + content + "', 0);");
 					Cw.wn("글 등록 완료");
-
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 				break;
 
 			case "4": // 글 삭제
-				String deleteNo = Ci.r("삭제할 글 번호를 입력해주세요: ");
+				String deleteNo = Ci.r("삭제할 글 번호를 입력해주세요");
 				Db.dbExecuteUpdate("DELET FROM board WHERE b_no=" + deleteNo);
 				break;
 
 			case "5":
-				String editNo = Ci.r("수정할 글 번호를 입력해주세요.");
-				String editTitle = Ci.r("글 제목을 입력해주세요: ");
-				String editContent = Ci.r("글 내용을 입력해주세요: ");
-				String editId = Ci.r("작성자 id 입력해주세요: ");
-				Db.dbExecuteUpdate("UPDATE board SET `b_title`='" + editTitle + "' `b_id`='" + editId
-						+ "' `b_datetime`=now(), `b_text`='" + editContent + "' WHERE `b_no`='" + editNo + "';");
+				String editNo = Ci.r("수정할 글 번호를 입력해주세요");
+				String editTitle = Ci.r("글 제목을 입력해주세요");
+				String editContent = Ci.r("글 내용을 입력해주세요");
+				String editId = Ci.r("작성자 id 입력해주세요");
+				Db.dbExecuteUpdate("UPDATE board SET b_title='" + editTitle + "' b_id='" + editId
+						+ "' b_datetime=now(), b_text='" + editContent + "' WHERE b_no='" + editNo + "';");
 				break;
 
 			case "0": // 관리자
