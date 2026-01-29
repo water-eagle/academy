@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="common.jsp" flush="true">
+	<jsp:forward page="common.jsp">
 		<jsp:param name="x" value="1" />
 		<jsp:param name="y" value="2" />
-	</jsp:include>
+	</jsp:forward>
 	
 	개1
 </body>
