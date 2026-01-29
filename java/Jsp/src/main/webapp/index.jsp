@@ -1,4 +1,5 @@
 <%@page import="java.util.ArrayList"%>
+<%@page import="com.watereagle.hello.Cat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,23 +10,10 @@
 </head>
 <body>
 
-	<%-- ArrayList<String> 객체 선언하고 --%>
-	<%-- 고양이,개,너굴맨을 추가. for문 으로 순회하면서 출력하기 --%>
-
+	<%-- jsp 에서 Cat 객체 생성하고 객체의 name 변수 값을 표현태그로 출력. --%>
 	<%
-	ArrayList<String> animalArrayList = new ArrayList<>();
-
-		animalArrayList.add("고양이");
-		animalArrayList.add("개");
-		animalArrayList.add("너굴맨");
-		for (int i = 0; i < 3; i++) {
+	Cat cat = new Cat();
 	%>
-
-	<%= animalArrayList.get(i) %>
-
-	<%
-		}
-	%>
-	
+	<%=cat.name%>
 </body>
 </html>
