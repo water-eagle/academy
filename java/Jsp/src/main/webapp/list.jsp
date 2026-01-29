@@ -11,6 +11,8 @@
 <title>게시판-리스트</title>
 </head>
 <body>
+	글번호 | 제목 | 글내용 | 작성자id
+	<hr>
 	<%
 	try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
