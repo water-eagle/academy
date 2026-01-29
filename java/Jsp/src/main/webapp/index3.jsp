@@ -7,8 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@include file="common.jsp"%>
-
+	<jsp:include page="common.jsp" flush="true">
+		<jsp:param name="x" value="1" />
+		<jsp:param name="y" value="2" />
+	</jsp:include>
+	
 	개1
 </body>
 </html>
