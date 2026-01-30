@@ -25,7 +25,7 @@
 			String id = rs.getString("id");
 	%>
 
-	<%=num%> <a href="read.jsp?num=1"><%=title%></a> <%=id%> <br>
+	<%=num%> <a href="read.jsp?num=<%=num %>"><%=title%></a> <%=id%> <br>
 
 	<%
 	}
