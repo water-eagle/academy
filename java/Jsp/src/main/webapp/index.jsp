@@ -10,12 +10,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
+<%-- // TODO: 문11 내장객체 - response하기 --%>
+
+<%-- 	<%
 	request.setCharacterEncoding("UTF-8"); // 이거 안 하면 한굴 깨짐 
 	String s = request.getParameter("tel");
 	out.println(s); // 1. 이걸로 출력하거나
 	%>
 	입력한 전화번호:
-	<%=s%><%-- 이걸로 출력 --%>
+	<%=s%>이걸로 출력 --%>
+	
+	<%response.sendRedirect("https://www.google.com/"); %>
 </body>
 </html>
