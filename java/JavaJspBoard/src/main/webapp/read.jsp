@@ -8,7 +8,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시판 화면</title>
+<link rel="stylesheet" href="common.css">
 </head>
 <body>
 	<%
@@ -29,7 +30,7 @@
 
 	글 번호: <%=num%><br>
 	글 제목: <%=title%><br>
-	작성자: <%=id%><br>
+	작성자: <%=id%><hr>
 	<%=content%>
 
 	<%

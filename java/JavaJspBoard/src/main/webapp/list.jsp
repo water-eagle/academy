@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판-리스트</title>
+<link rel="stylesheet" href="common.css">
 </head>
 <body>
 	글번호 | 제목 | 작성자id
