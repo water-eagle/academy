@@ -11,7 +11,7 @@
 <title>게시판-리스트</title>
 </head>
 <body>
-	글번호 | 제목 | 글내용 | 작성자id
+	글번호 | 제목 | 작성자id
 	<hr>
 	<%
 	try {
@@ -22,14 +22,10 @@
 		while (rs.next()) {
 			String num = rs.getString("num");
 			String title = rs.getString("title");
-			String content = rs.getString("content");
 			String id = rs.getString("id");
 	%>
 
-	<%=num%>
-	<%=title%>
-	<%=content%>
-	<%=id%><br>
+	<%=num%> <a href="read.jsp?num=1"><%=title%></a> <%=id%> <br>
 
 	<%
 	}
