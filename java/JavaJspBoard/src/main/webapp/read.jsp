@@ -31,12 +31,14 @@
 	글 번호: <%=num%><br>
 	글 제목: <%=title%><br>
 	작성자: <%=id%><hr>
-	<%=content%>
+	<%=content%><br>
 
 	<%
 	} catch (Exception e) {
 	e.printStackTrace();
 	}
 	%>
+	
+	<a href="delproc.jsp?num=<%=readNum%>">글삭제하기</a>
 </body>
 </html>
