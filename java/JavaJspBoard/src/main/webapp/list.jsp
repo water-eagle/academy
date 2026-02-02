@@ -26,7 +26,10 @@
 			String id = rs.getString("id");
 	%>
 
-	<%=num%> <a href="read.jsp?num=<%=num %>"><%=title%></a> <%=id%> <br>
+	<%=num%>
+	<a href="read.jsp?num=<%=num%>"><%=title%></a>
+	<%=id%>
+	<br>
 
 	<%
 	}
@@ -35,5 +38,6 @@
 	e.printStackTrace();
 	}
 	%>
+	<a href="write.jsp">글쓰기</a>
 </body>
 </html>
