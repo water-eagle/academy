@@ -9,8 +9,8 @@
 </head>
 <body>
 	<form action="writeproc.jsp" method="get">
-		글제목: <input name="title"><br> 글작성자 id: <input name="id"><br>
-		글내용:
+		제목: <input name="title"><br> 작성자 id: <input name="id"><br>
+		내용:
 		<textarea name="content" rows="5" cols="50"></textarea>
 		<input type="submit" value="글쓰기">
 	</form>

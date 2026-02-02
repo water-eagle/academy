@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시판 화면</title>
+<title>게시판-읽기</title>
 <link rel="stylesheet" href="common.css">
 </head>
 <body>
@@ -31,7 +31,7 @@
 	글 번호: <%=num%><br>
 	글 제목: <%=title%><br>
 	작성자: <%=id%><hr>
-	<%=content%><br>
+	<%=content%><hr>
 
 	<%
 	} catch (Exception e) {
@@ -39,6 +39,7 @@
 	}
 	%>
 	
-	<a href="delproc.jsp?num=<%=readNum%>">글삭제하기</a>
+	<a href="modify.jsp?num=<%=readNum%>">수정하기</a>
+	<a href="delproc.jsp?num=<%=readNum%>">삭제하기</a>
 </body>
 </html>
