@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="common.css">
 <% String num=request.getParameter("num"); %>
 <title>게시판-읽기</title>
 </head>
@@ -28,7 +29,7 @@
 	번호: <%=num %><br>
 	제목: <%=title %><br>
 	작성자: <%=id %><hr>
-	<%=content %>
+	<%=content %><hr>
 		
 	<%
 	}
@@ -36,5 +37,8 @@
 	e.printStackTrace();
 	}
 	%>
+	<a href="list.jsp">뒤로가기</a><br>
+	<a href="modify.jsp?num=<%=num%>">수정하기</a>
+	<a href="delproc.jsp?num=<%=num%>">삭제하기</a>
 </body>
 </html>

@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="common.css">
 <title>게시판-리스트</title>
 </head>
 <body>
@@ -43,7 +44,6 @@
 			</a></td>
 		</tr>
 	</table>
-	
 	<%
 	}
 	} catch (Exception e) {

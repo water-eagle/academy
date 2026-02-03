@@ -8,11 +8,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="common.css">
 
 <title>글쓰기</title>
 </head>
 <body>
-	<form action="writeProc.jsp" method="get">
+	<form action="writeproc.jsp" method="get">
 		<input type="text" name="id" placeholder="아이디"><br>
 		<input type="text" name="title" placeholder="제목"><br>
 		<hr>

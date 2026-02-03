@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="common.css">
 <title>Insert title here</title>
 </head>
 <body>

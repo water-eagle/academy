@@ -8,8 +8,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="common.css">
 <%
 request.setCharacterEncoding("UTF-8");
+String num = request.getParameter("num");
 %>
 <title>Insert title here</title>
 </head>
@@ -33,6 +35,7 @@ request.setCharacterEncoding("UTF-8");
 			System.out.println("==== 글쓰기 실패");
 		}
 	%>
+	
 	<%
 	} catch (Exception e) {
 	e.printStackTrace();
