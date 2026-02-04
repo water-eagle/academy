@@ -1,0 +1,19 @@
+<%@page import="com.watereagle.board.Dao"%>
+<%@page import="com.watereagle.board.Dto"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+	Dto dto = new Dto(request.getParameter("title"), request.getParameter("text"));
+	Dao dao = new Dao();
+	dao.edit(dto, request.getParameter("no"));
+	response.sendRedirect("read.jsp?no="+request.getParameter("no"));
+	%>
+</body>
+</html>
