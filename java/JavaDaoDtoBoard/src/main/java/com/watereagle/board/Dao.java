@@ -57,7 +57,7 @@ public class Dao extends Da {
 		try {
 			int startIndex = ((Integer.parseInt(page)) - 1) * 3;
 
-			String sql = String.format("SELECT * FROM %s", Db.TABLE_PS_BOARD_FREE);
+			String sql = String.format("SELECT * FROM %s LIMIT %s, 3", Db.TABLE_PS_BOARD_FREE, startIndex);
 			System.out.println("SQL: " + sql);
 			ResultSet rs = st.executeQuery(sql);
 			while (rs.next()) {
@@ -93,9 +93,76 @@ public class Dao extends Da {
 			rs.next();
 			count = rs.getInt("count(*)");
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		super.close();
 		return count;
 	}
+
+	/* 총 글 수 구하기 <검색> */
+	public int getSearchPostCount(String word) {
+		int count = 0;
+		super.connect();
+		try {
+			String sql = String.format("SELECT count(*) FROM %s WHERE b_title LIKE '%%%s%%'", Db.TABLE_PS_BOARD_FREE,
+					word);
+			System.out.println("SQL: " + sql);
+			ResultSet rs = st.executeQuery(sql);
+			rs.next();
+			count = rs.getInt("count(*)");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		super.close();
+		return count;
+	}
+
+	/* 글 리스트 <검색> */
+	public ArrayList<Dto> listSearch(String word, String page) {
+		super.connect();
+		ArrayList<Dto> posts = new ArrayList<>();
+		try {
+			int startIndex = ((Integer.parseInt(page)) - 1) * 3;
+
+			String sql = String.format("SELECT * FROM %s WHERE b_title LIKE '%%%s%%' LIMIT %s, 3",
+					Db.TABLE_PS_BOARD_FREE, word, startIndex);
+			System.out.println("SQL" + sql);
+			ResultSet rs = st.executeQuery(sql);
+			while (rs.next()) {
+				posts.add(new Dto(rs.getString("B_NO"), rs.getString("B_TITLE"), rs.getString("B_ID"),
+						rs.getString("B_DATETIME"), rs.getString("B_HIT"), rs.getString("B_TEXT"),
+						rs.getString("B_REPLY_COUNT"), rs.getString("B_REPLY_ORI")));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		super.close();
+		return posts;
+	}
+
+	/* 총 페이지 수 구하기 */
+	public int getTotalPageCount() {
+		int totalPageCount = 0;
+		int count = getPostCount();
+		if (count % 3 == 0) {
+			totalPageCount = count / 3; // 나머지 없음
+		} else {
+			totalPageCount = count / 3 + 1; // 나머지가 있어서 추가 페이지가 필요한 경우
+		}
+		return totalPageCount;
+	}
+
+	/* 총 페이지 수 구하기 <검색> */
+	public int getSearchTotalPageCount(String word) {
+		int totalPageCount = 0;
+		int count = getSearchPostCount(word);
+
+		if (count % 3 == 0) {
+			totalPageCount = count / 3; // 나머지 없음
+		} else {
+			totalPageCount = count / 3 + 1; // 나머지가 있어서 추가 페이지가 필요한 경우
+		}
+		return totalPageCount;
+	}
+
 }
