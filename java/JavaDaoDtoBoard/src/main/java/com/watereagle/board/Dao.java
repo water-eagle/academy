@@ -55,9 +55,9 @@ public class Dao extends Da {
 		super.connect();
 		ArrayList<Dto> posts = new ArrayList<>();
 		try {
-			int startIndex = ((Integer.parseInt(page)) - 1) * 3;
+			int startIndex = ((Integer.parseInt(page)) - 1) * Board.LIST_AMOUNT;
 
-			String sql = String.format("SELECT * FROM %s LIMIT %s, 3", Db.TABLE_PS_BOARD_FREE, startIndex);
+			String sql = String.format("SELECT * FROM %s LIMIT %s, %s", Db.TABLE_PS_BOARD_FREE, startIndex, Board.LIST_AMOUNT);
 			System.out.println("SQL: " + sql);
 			ResultSet rs = st.executeQuery(sql);
 			while (rs.next()) {
@@ -122,10 +122,10 @@ public class Dao extends Da {
 		super.connect();
 		ArrayList<Dto> posts = new ArrayList<>();
 		try {
-			int startIndex = ((Integer.parseInt(page)) - 1) * 3;
+			int startIndex = ((Integer.parseInt(page)) - 1) * Board.LIST_AMOUNT;
 
-			String sql = String.format("SELECT * FROM %s WHERE b_title LIKE '%%%s%%' LIMIT %s, 3",
-					Db.TABLE_PS_BOARD_FREE, word, startIndex);
+			String sql = String.format("SELECT * FROM %s WHERE b_title LIKE '%%%s%%' LIMIT %s, %s",
+					Db.TABLE_PS_BOARD_FREE, word, startIndex, Board.LIST_AMOUNT);
 			System.out.println("SQL" + sql);
 			ResultSet rs = st.executeQuery(sql);
 			while (rs.next()) {
@@ -144,10 +144,10 @@ public class Dao extends Da {
 	public int getTotalPageCount() {
 		int totalPageCount = 0;
 		int count = getPostCount();
-		if (count % 3 == 0) {
-			totalPageCount = count / 3; // 나머지 없음
+		if (count % Board.LIST_AMOUNT == 0) {
+			totalPageCount = count / Board.LIST_AMOUNT; // 나머지 없음
 		} else {
-			totalPageCount = count / 3 + 1; // 나머지가 있어서 추가 페이지가 필요한 경우
+			totalPageCount = count / Board.LIST_AMOUNT + 1; // 나머지가 있어서 추가 페이지가 필요한 경우
 		}
 		return totalPageCount;
 	}
@@ -157,10 +157,10 @@ public class Dao extends Da {
 		int totalPageCount = 0;
 		int count = getSearchPostCount(word);
 
-		if (count % 3 == 0) {
-			totalPageCount = count / 3; // 나머지 없음
+		if (count % Board.LIST_AMOUNT == 0) {
+			totalPageCount = count / Board.LIST_AMOUNT; // 나머지 없음
 		} else {
-			totalPageCount = count / 3 + 1; // 나머지가 있어서 추가 페이지가 필요한 경우
+			totalPageCount = count / Board.LIST_AMOUNT + 1; // 나머지가 있어서 추가 페이지가 필요한 경우
 		}
 		return totalPageCount;
 	}
