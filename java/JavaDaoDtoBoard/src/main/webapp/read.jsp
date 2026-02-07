@@ -13,7 +13,7 @@ Dto d=dao.read(no);
 %>
 <title><%=d.title %> - 자유게시판</title>
 </head>
-<a href="list.jsp?no<%=d.no%>">리스트로</a><br>
+<a href="list.jsp">리스트로</a><br>
 
 <%=d.no %><br>
 <%=d.id %><br>
