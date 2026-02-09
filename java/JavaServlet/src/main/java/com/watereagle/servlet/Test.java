@@ -1,6 +1,7 @@
 package com.watereagle.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -18,9 +19,11 @@ public class Test extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		PrintWriter out = response.getWriter(); // out 객체를 받아서
+		
 		System.out.println("==== 두 개");
 		
-		response.sendRedirect("http://www.google.com/");
+		out.println("<h1>cat</h1>"); // 고양이 를 브라우저에 출력
 	}
 
 }
