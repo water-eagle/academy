@@ -9,11 +9,9 @@
 <body>
 	<%
 	request.setCharacterEncoding("UTF-8");
-	String season = request.getParameter("season");
-	String id = (String) session.getAttribute("idKey");
+	String saveId = (String)session.getAttribute("saveId");
 	%>
 	
-	<%=id %>님이 좋아하는 계절은
-	<%=season %>입니다.
+	<%=saveId %>님 안녕!
 </body>
 </html>
