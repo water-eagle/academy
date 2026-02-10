@@ -16,7 +16,7 @@ Dto dto = dao.read(no);
 <body>
 	<a href="list.jsp?no<%=no%>">리스트로</a><br>
 
-	<form action="edit_proc.jsp">
+	<form action="ServletEdit">
 		<input type="hidden" name="no" value="<%=no%>"><br>
 		<input type="text" name="title" placeholder="제목" value="<%=dto.title%>"><hr>
 		<input type="text" name="text" placeholder="내용" value="<%=dto.text%>"><hr>

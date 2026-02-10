@@ -24,23 +24,27 @@
 			<th>날짜</th>
 			<th>조회수</th>
 		</tr>
-
-		<%		
+		<%
+		/* localhost:8080/JavaDaoDtoBoard/list.jsp 접속 시 처리 */
 		String pageNum = request.getParameter("page");
-		if (pageNum == null) {
-			pageNum = "1";
+		if (pageNum == null) { // 전송된 page값이 없을 경우
+			pageNum = "1"; // 1페이지를 기본으로 보여주기
 		}
 
 		Dao dao = new Dao();
 		int totalPage = 0;
 		ArrayList<Dto> posts = null;
 		String searchWord = request.getParameter("word");
+		
+		/* 검색 내용이 없으면 전체 게시판 출력 */
 		if (searchWord == null || searchWord.equals("null")) { // case1. 검색어가 없으면
 			posts = dao.list(pageNum);
 			totalPage = dao.getTotalPageCount(); // 총 페이지 수 구하기
+		
+		/* 검색 내용의 전체 게시판 출력 */
 		} else { // case2. 검색어가 있으면
 			posts = dao.listSearch(searchWord, pageNum);
-			totalPage = dao.getSearchTotalPageCount(searchWord); // 총 페이지 수 구하기
+			totalPage = dao.getSearchTotalPageCount(searchWord); // 검색 결과에 나온 총 페이지 수 구하기
 		}
 
 		/* 게시판 글 리스트 표시 */
@@ -53,11 +57,11 @@
 			<td><%=posts.get(i).datetime%></td>
 			<td><%=posts.get(i).hit%></td>
 		</tr>
+		<%
+		}
+		%>
 	</table>
 	<hr>
-	<%
-	}
-	%>
 
 	<%
 	int nPageNum = Integer.parseInt(pageNum); // 계산을 위해 변환
