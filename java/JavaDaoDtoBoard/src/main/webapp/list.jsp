@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판-리스트</title>
-<link rel="stylesheet" href="list.css">
+<link rel="stylesheet" href="css/list.css?ver<%= System.currentTimeMillis() %>">
 </head>
 <body>
 	<a href="write.jsp">작성하기</a>
@@ -65,6 +65,7 @@
 	// {블럭 처리 - 1/9} 블럭 총 갯수 구하기
 	// 예: [1][2][3][4][5] ...
 	// 참고: Math. 함수: 반올림(round), 올림(ceil), 버림(floor)
+	// 블럭 총 갯수 = 페이지 수 / 블럭 당 페이지 수 << 결과에 올림 처리
 	int totalBlock = (int) Math.ceil((double) totalPage / Board.PAGE_LINK_AMOUNT);
 
 	// {블럭 처리 - 2/9} 현재 블럭 번호 구하기
