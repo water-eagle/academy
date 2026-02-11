@@ -142,7 +142,7 @@
 				%><a href="list.jsp?page=<%=i %>">[<%=i %>]</a><%
 			} else { // <2> 검색어로 검색한 리스트
 				// *중요* 한글 검색어를 전달할 때는 url인코딩을 해줘야함. 영어는 괜찮음. 그래도 다 해주고
-				String urlEncodedSearchWord = java.net.URLEncoder.encode(searchWord);
+String urlEncodedSearchWord = java.net.URLEncoder.encode(searchWord);
 			%><a href="list.jsp?page=<%=i %>&word=<%=urlEncodedSearchWord%>">[<%=i %>]</a><%
 			}
 		}
@@ -154,7 +154,7 @@
 		if (searchWord == null) { // <1> 일반 리스트
 			%><a href="list.jsp?page=<%=nextPage %>">[다음]</a><%
 		} else { // <2> 검색어로 검색한 리스트
-			%><a href="list.jsp>page=<%=nextPage %>&word=<%=searchWord %>">[다음]</a><%
+			%><a href="list.jsp?page=<%=nextPage %>&word=<%=searchWord %>">[다음]</a><%
 		}
 	}
 	%>
