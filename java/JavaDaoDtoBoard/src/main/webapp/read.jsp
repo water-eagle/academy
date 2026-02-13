@@ -23,6 +23,6 @@
 	<%=d.text%><br>
 
 	<a href="edit.jsp?no=<%=d.no%>">수정</a>
-	<a href="ServletDel?no=<%=d.no%>">삭제</a>
+	<a href="/board/del?no=<%=d.no%>">삭제</a>
 </body>
 </html>
