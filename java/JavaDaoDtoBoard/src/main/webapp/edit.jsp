@@ -7,7 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <%
+// 글번호 no가 get 방식으로 넘어 왔다가 가정
 String no = request.getParameter("no");
+
+// 글 가져오기
 Dao dao = new Dao();
 Dto dto = dao.read(no);
 %>

@@ -36,28 +36,33 @@ public class ServletController extends HttpServlet {
 			case "/write":
 				System.out.println("쓰기");
 				nextPage = "/list.jsp";
-				Dto dto=new Dto(
-						request.getParameter("title"),
-						request.getParameter("id"),
-						request.getParameter("text")
-						);
-				Dao dao=new Dao();
+				Dto dto = new Dto(request.getParameter("title"), request.getParameter("id"),
+						request.getParameter("text"));
 				dao.write(dto);
 				break;
 
-			case "/edit": // TODO
-				System.out.println("수정");
-				nextPage = "/edit.jsp";
+			case "/edit_insert": // TODO
+				System.out.println("수정-insert");
+				break;
+
+			case "/edit_proc": // TODO
+				System.out.println("수정-proc");
+//				nextPage = "/edit.jsp";
+//				dao.edit(new Dto(request.getParameter("title"), request.getParameter("text")),
+//						request.getParameter("no"));
 				break;
 
 			case "/read": // TODO
 				System.out.println("읽기");
 				nextPage = "/read.jsp";
+				Dto d = dao.read(request.getParameter("no"));
+				request.setAttribute("post", d);
 				break;
 
 			case "/list": // TODO
 				System.out.println("리스트");
 				nextPage = "/list.jsp";
+				break;
 
 			default:
 				break;

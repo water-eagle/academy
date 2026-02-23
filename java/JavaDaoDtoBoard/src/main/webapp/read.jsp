@@ -7,14 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <%
-	String no = request.getParameter("no");
-	Dao dao = new Dao();
-	Dto d = dao.read(no);
+Dto d = (Dto) request.getAttribute("post");
 %>
-<title><%=d.title%> - 자유게시판</title>
+<title> <%--=d.title--%> 글 읽기 - 자유게시판</title> <%-- TODO: 제목 가져오기 기능 오류 수정하기 --%>
 </head>
 <body>
-	<a href="list.jsp">리스트로</a>
+	<a href="/list.jsp">리스트로</a>
 	<br>
 
 	<%=d.no%><br>
@@ -22,7 +20,7 @@
 	<%=d.title%><hr>
 	<%=d.text%><br>
 
-	<a href="edit.jsp?no=<%=d.no%>">수정</a>
+	<a href="/edit.jsp?no=<%=d.no%>">수정</a>
 	<a href="/board/del?no=<%=d.no%>">삭제</a>
 </body>
 </html>

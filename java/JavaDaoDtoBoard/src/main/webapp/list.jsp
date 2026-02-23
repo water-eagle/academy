@@ -32,10 +32,11 @@
 		}
 
 		Dao dao = new Dao();
+
 		int totalPage = 0;
+
 		ArrayList<Dto> posts = null;
 		String searchWord = request.getParameter("word");
-		
 		/* 검색 내용이 없으면 전체 게시판 출력 */
 		if (searchWord == null || searchWord.equals("null")) { // case1. 검색어가 없으면
 			posts = dao.list(pageNum);
@@ -52,7 +53,7 @@
 		%>
 		<tr>
 			<td><%=posts.get(i).no%></td>
-			<td><a href="read.jsp?no=<%=posts.get(i).no%>"><%=posts.get(i).title%></a></td>
+			<td><a href="/board/read?no=<%=posts.get(i).no%>"><%=posts.get(i).title%></a></td>
 			<td><%=posts.get(i).id%></td>
 			<td><%=posts.get(i).datetime%></td>
 			<td><%=posts.get(i).hit%></td>
