@@ -20,7 +20,7 @@ Dto d = (Dto) request.getAttribute("post");
 	<%=d.title%><hr>
 	<%=d.text%><br>
 
-	<a href="/edit.jsp?no=<%=d.no%>">수정</a>
+	<a href="/board/edit_insert?no=<%=d.no%>">수정</a>
 	<a href="/board/del?no=<%=d.no%>">삭제</a>
 </body>
 </html>

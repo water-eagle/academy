@@ -7,20 +7,16 @@
 <head>
 <meta charset="UTF-8">
 <%
-// 글번호 no가 get 방식으로 넘어 왔다가 가정
-String no = request.getParameter("no");
-
 // 글 가져오기
-Dao dao = new Dao();
-Dto dto = dao.read(no);
+Dto dto = (Dto) request.getAttribute("post");
 %>
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="list.jsp?no<%=no%>">리스트로</a><br>
+	<a href="list.jsp?no<%=dto.no%>">리스트로</a><br>
 
-	<form action="ServletEdit">
-		<input type="hidden" name="no" value="<%=no%>"><br>
+	<form action="/board/edit_proc">
+		<input type="hidden" name="no" value="<%=dto.no%>"><br>
 		<input type="text" name="title" placeholder="제목" value="<%=dto.title%>"><hr>
 		<input type="text" name="text" placeholder="내용" value="<%=dto.text%>"><hr>
 		<input type="submit" value="수정">
