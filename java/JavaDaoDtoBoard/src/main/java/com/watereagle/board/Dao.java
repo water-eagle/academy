@@ -51,7 +51,7 @@ public class Dao extends Da {
 	}
 
 	/* (4/5) 글 리스트 */
-	public ArrayList<Dto> list(String page) {
+	public ArrayList<Dto> listBackup(String page) {
 		super.connect();
 		ArrayList<Dto> posts = new ArrayList<>();
 		try {
@@ -71,6 +71,28 @@ public class Dao extends Da {
 		super.close();
 		return posts;
 
+	}
+	
+	/* 서블릿 컨트롤러 /list - 전체 리스트 불러오기 */
+	public ArrayList<Dto> list() {
+		super.connect();
+		ArrayList<Dto> posts = new ArrayList<>();
+		try {
+			
+			String sql = String.format("SELECT * FROM %s", Db.TABLE_PS_BOARD_FREE);
+			System.out.println("SQL: " + sql);
+			ResultSet rs = st.executeQuery(sql);
+			while (rs.next()) {
+				posts.add(new Dto(rs.getString("B_NO"), rs.getString("B_TITLE"), rs.getString("B_ID"),
+						rs.getString("B_DATETIME"), rs.getString("B_HIT"), rs.getString("B_TEXT"),
+						rs.getString("B_REPLY_COUNT"), rs.getString("B_REPLY_ORI")));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		super.close();
+		return posts;
+		
 	}
 
 	/* (5/5) 수정 */

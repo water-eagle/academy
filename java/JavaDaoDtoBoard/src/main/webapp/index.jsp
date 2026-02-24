@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="list.jsp">자유게시판</a>
+<a href="/board/list">자유게시판</a>
 </body>
 </html>

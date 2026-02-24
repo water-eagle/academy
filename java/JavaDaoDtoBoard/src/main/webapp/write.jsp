@@ -7,7 +7,7 @@
 <title>게시판-글작성</title>
 </head>
 <body>
-	<a href="list.jsp">리스트로</a><br>
+	<a href="/board/list">리스트로</a><br>
 
 	<form action="/board/write">
 		<input type="text" name="id" placeholder="아이디" value=""><br>

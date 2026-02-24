@@ -13,7 +13,7 @@ Dto dto = (Dto) request.getAttribute("post");
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="list.jsp?no<%=dto.no%>">리스트로</a><br>
+	<a href="/board/list?no<%=dto.no%>">리스트로</a><br>
 
 	<form action="/board/edit_proc">
 		<input type="hidden" name="no" value="<%=dto.no%>"><br>

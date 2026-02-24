@@ -1,6 +1,7 @@
 package com.watereagle.board;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -42,14 +43,12 @@ public class ServletController extends HttpServlet {
 				break;
 
 			case "/edit_insert":
-				System.out.println("수정-insert");
 				nextPage="/edit.jsp";
 				request.setAttribute("post", dao.read(request.getParameter("no")));
 				break;
 
 			case "/edit_proc":
-				System.out.println("수정-proc");
-				nextPage = "/edit.jsp";
+				nextPage = "/list.jsp";
 				dao.edit(new Dto(request.getParameter("title"), request.getParameter("text")),
 						request.getParameter("no"));
 				break;
@@ -64,6 +63,8 @@ public class ServletController extends HttpServlet {
 			case "/list": // TODO
 				System.out.println("리스트");
 				nextPage = "/list.jsp";
+				ArrayList<Dto> posts=dao.list();
+				request.setAttribute("posts", posts);
 				break;
 
 			default:
