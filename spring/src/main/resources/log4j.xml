@@ -14,6 +14,10 @@
 	<logger name="com.watereagle.spring">
 		<level value="info" />
 	</logger>
+	<!-- TestController 컨트롤러 때문에 추가함 -->
+	<logger name="com.watereagle.controller">
+		<level value="info" />
+	</logger>
 	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
@@ -34,7 +38,7 @@
 
 	<!-- Root Logger -->
 	<root>
-		<priority value="warn" />
+		<priority value="warn" /> <!-- warn 워닝 레벨 로그 이상만 나옴 -->
 		<appender-ref ref="console" />
 	</root>
 	
