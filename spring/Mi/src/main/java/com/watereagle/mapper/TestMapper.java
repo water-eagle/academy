@@ -10,4 +10,5 @@ public interface TestMapper {
 	
 	public void updateVisitantCount(); /* 문제 1 */
 	public void insertDoodle(); /* 문제 2 */
+	public void tbl_test_del(); /* 문제 3 */
 }

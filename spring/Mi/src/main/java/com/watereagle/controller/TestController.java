@@ -46,5 +46,12 @@ public class TestController {
 		log.info("문제2 실행됨");
 		service.insertDoodle();
 	}
+	
+	/* 문제 3 */
+	@GetMapping("/tbl_test_del")
+	public void tbl_test_del() {
+		log.info("문제3 실행됨");
+		service.tbl_test_del();
+	}
 
 }

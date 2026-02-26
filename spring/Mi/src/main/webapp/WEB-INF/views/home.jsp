@@ -13,5 +13,6 @@
 <P>  The time on the server is ${serverTime}. </P>
 <a href="/Mi/test/getOnePlusTwo">1+2 확인하러가기</a>
 <a href="/Mi/test/insertDoodle">문제 2</a> <!-- 문제 2 -->
+<a href="/Mi/test/tbl_test_del">문제 3</a> <!-- 문제 3 -->
 </body>
 </html>

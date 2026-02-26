@@ -44,5 +44,11 @@ public class TestServiceImpl implements TestService{
 		mapper.insertDoodle();
 	}
 	
+	/* 문제 3 */
+	@Override
+	public void tbl_test_del() {
+		mapper.tbl_test_del();
+	}
+	
 
 }

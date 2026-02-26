@@ -26,4 +26,9 @@
 		insert into tbl_doodle values ("aaaaaaaa")
 	</insert>
 	
+	<!-- 문제 3 -->
+	<delete id="tbl_test_del">
+		delete from tbl_test_del where no = 1
+	</delete>
+	
 </mapper>
