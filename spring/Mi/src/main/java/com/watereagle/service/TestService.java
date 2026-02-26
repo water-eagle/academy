@@ -5,4 +5,5 @@ public interface TestService {
 	public String getTwo();
 	
 	public void updateVisitantCount(); /* 문제 1 */
+	public void insertDoodle(); /* 문제 2 */
 }

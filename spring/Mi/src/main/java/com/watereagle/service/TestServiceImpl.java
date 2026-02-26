@@ -38,6 +38,11 @@ public class TestServiceImpl implements TestService{
 	public void updateVisitantCount() {
 		mapper.updateVisitantCount();
 	}
+	/* 문제 2 */
+	@Override
+	public void insertDoodle() {
+		mapper.insertDoodle();
+	}
 	
 
 }

@@ -39,5 +39,12 @@ public class TestController {
 			log.info("문제1 실행됨");
 			service.updateVisitantCount();
 		}
+	
+	/* 문제 2 */
+	@GetMapping("/insertDoodle")
+	public void insertDoodle() {
+		log.info("문제2 실행됨");
+		service.insertDoodle();
+	}
 
 }

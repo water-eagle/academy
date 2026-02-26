@@ -20,4 +20,10 @@
 	<update id="updateVisitantCount">
 		update tbl_visitant_count set count = 200
 	</update>
+	
+	<!-- 문제 2 -->
+	<insert id="insertDoodle">
+		insert into tbl_doodle values ("aaaaaaaa")
+	</insert>
+	
 </mapper>

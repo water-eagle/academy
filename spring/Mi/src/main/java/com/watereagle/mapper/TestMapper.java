@@ -9,4 +9,5 @@ public interface TestMapper {
 	public TestDto getData4();
 	
 	public void updateVisitantCount(); /* 문제 1 */
+	public void insertDoodle(); /* 문제 2 */
 }
