@@ -11,7 +11,7 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-<a href="/spring/test/getOnePlusTwo">1+2 확인하러가기</a>
-<a href="/spring/test/insertDoodle">문제 2</a> <!-- 문제 2 -->
+<a href="/Mi/test/getOnePlusTwo">1+2 확인하러가기</a>
+<a href="/Mi/test/insertDoodle">문제 2</a> <!-- 문제 2 -->
 </body>
 </html>
