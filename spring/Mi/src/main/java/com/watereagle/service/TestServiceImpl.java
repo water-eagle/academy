@@ -33,6 +33,11 @@ public class TestServiceImpl implements TestService{
 		return two;
 	}
 	
+	/* 문제 1 */
+	@Override
+	public void updateVisitantCount() {
+		mapper.updateVisitantCount();
+	}
 	
 
 }

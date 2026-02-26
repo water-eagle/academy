@@ -15,4 +15,9 @@
 	<select id="getData4" resultType="com.watereagle.spring.dto.TestDto">
 		SELECT * from tbl_test where no = 4
 	</select>
+	
+	<!-- 문제 1 -->
+	<update id="updateVisitantCount">
+		update tbl_visitant_count set count = 200
+	</update>
 </mapper>

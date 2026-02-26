@@ -32,4 +32,12 @@ public class TestController {
 		
 		model.addAttribute("sum",sum);
 	}
+	
+	/* 문제 1 */
+	@GetMapping("/updateVisitantCount")
+		public void updateVisitantCount() {
+			log.info("문제1 실행됨");
+			service.updateVisitantCount();
+		}
+
 }
