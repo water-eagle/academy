@@ -21,5 +21,6 @@
 <h1>[Spring][방명록]</h1>
 <a href="/Mi/guest/getList">방명록</a>
 <a href="/Mi/guest/read?bno=1">방명록 1번 글 보기</a>
+<a href="/Mi/guest/del?bno=1">방명록 1번 글 삭제</a>
 </body>
 </html>

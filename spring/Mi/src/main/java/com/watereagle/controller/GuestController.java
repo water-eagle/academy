@@ -29,4 +29,11 @@ public class GuestController {
 		model.addAttribute("read", service.read(bno));
 	}
 
+	@GetMapping("/del")
+	public String del(@RequestParam("bno") Long bno, Model model) {
+		log.info("컨트롤러 ==== 글번호 ===============" + bno);
+		model.addAttribute("read", service.del(bno));
+		return "redirect:/guest/getList";
+	}
+
 }

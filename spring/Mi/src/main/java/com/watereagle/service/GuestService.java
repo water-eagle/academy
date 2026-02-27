@@ -6,6 +6,6 @@ import com.watereagle.dto.GuestDto;
 
 public interface GuestService {
 	public ArrayList<GuestDto> getList();
-
 	public GuestDto read(long bno);
+	public GuestDto del(long bno);
 }
