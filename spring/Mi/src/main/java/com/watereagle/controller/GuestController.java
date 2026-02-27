@@ -3,9 +3,11 @@ package com.watereagle.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.watereagle.dto.GuestDto;
 import com.watereagle.service.GuestService;
 
 import lombok.AllArgsConstructor;
@@ -32,7 +34,18 @@ public class GuestController {
 	@GetMapping("/del")
 	public String del(@RequestParam("bno") Long bno, Model model) {
 		log.info("컨트롤러 ==== 글번호 ===============" + bno);
-		model.addAttribute("read", service.del(bno));
+		service.del(bno);
+		return "redirect:/guest/getList";
+	}
+
+	@GetMapping("/write")
+	public void write() {
+
+	}
+
+	@PostMapping("/write")
+	public String write(GuestDto dto) {
+		service.write(dto);
 		return "redirect:/guest/getList";
 	}
 

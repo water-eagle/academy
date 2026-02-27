@@ -4,13 +4,13 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.watereagle.mapper.GuestMapper">
 
-	<!-- 글 리스트 읽기 -->
+	<!-- 방명록 리스트 읽기 -->
 	<!-- resultType 에 복수형(ArrayList 등)을 적는게 아님. 그냥 dto 단수의 경로를 적어야됨. -->
 	<select id="getList" resultType="com.watereagle.dto.GuestDto">
 		SELECT * FROM tbl_guest
 	</select>
 
-	<!-- 글 특정 번호 읽기 -->
+	<!-- 방명력 특정 번호 읽기 -->
 	<select id="read" resultType="com.watereagle.dto.GuestDto">
 		<!-- #{bno} << 마이바티스 문법임. -->
 		<!-- 매퍼 인터페이스의 read 함수의 매개변수로 넘어오는 값을 받아 처리하는 sql문임. 매개변수로 넘어온 값을 sql 에 
@@ -18,8 +18,13 @@
 		SELECT * FROM tbl_guest WHERE bno = #{bno}
 	</select>
 
-	<!-- 글 특정 번호 삭제 -->
+	<!-- 방명력 특정 번호 삭제 -->
 	<select id="del" resultType="com.watereagle.dto.GuestDto">
 		DELETE FROM tbl_guest WHERE bno = #{bno}
+	</select>
+	
+	<!-- 방명력 작성 -->
+	<select id="write" resultType="com.watereagle.dto.GuestDto">
+		INSERT INTO tbl_guest (btext) VALUES (#{btext})
 	</select>
 </mapper>

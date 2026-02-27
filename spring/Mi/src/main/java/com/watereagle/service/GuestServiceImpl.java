@@ -29,8 +29,13 @@ public class GuestServiceImpl implements GuestService {
 	}
 
 	@Override
-	public GuestDto del(long bno) {
-		return mapper.del(bno);
+	public void del(long bno) {
+		mapper.del(bno);
+	}
+
+	@Override
+	public void write(GuestDto dto) {
+		mapper.write(dto);
 	}
 
 }
