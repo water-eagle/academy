@@ -11,6 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1>일반</h1>
 	<%
 	//Model 에 "list" 라는 키로 넣은 객체를 request 내장객체에서 빼올 수 있음.
 
@@ -27,6 +28,7 @@
 	}
 	%>
 
+	<h1>JSTL EL 적용</h1>
 	<!-- jstl 로 처리하면 더 짧게 가능 -->
 	<c:forEach var="guest" items="${list}">
 	    ${guest.bno}

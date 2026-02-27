@@ -7,4 +7,10 @@
 	<select id="getList" resultType="com.watereagle.dto.GuestDto">
 		SELECT * from tbl_guest
 	</select>
+	<select id="read" resultType="com.watereagle.dto.GuestDto">
+		<!-- #{bno} << 마이바티스 문법임. -->
+		<!-- 매퍼 인터페이스의 read 함수의 매개변수로 넘어오는 값을 받아 처리하는 sql문임. 매개변수로 넘어온 값을 sql 에 
+			삽입하려면 해당 매개변수명을 #{ } 로 묶으면 안에 값이 뿅 나옴. -->
+		select * from tbl_guest where bno = #{bno}
+	</select>
 </mapper>
