@@ -9,4 +9,5 @@ public interface GuestService {
 	public GuestDto read(long bno);
 	public void del(long bno);
 	public void write(GuestDto dto);
+	public void modify(GuestDto dto);
 }

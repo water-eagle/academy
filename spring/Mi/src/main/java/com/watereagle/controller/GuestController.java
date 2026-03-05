@@ -25,7 +25,7 @@ public class GuestController {
 		model.addAttribute("list", service.getList());
 	}
 
-	@GetMapping("/read")
+	@GetMapping({"/read", "/modify"})
 	public void read(@RequestParam("bno") Long bno, Model model) {
 		log.info("컨트롤러 ==== 글번호 ===============" + bno);
 		model.addAttribute("read", service.read(bno));
@@ -48,5 +48,12 @@ public class GuestController {
 		service.write(dto);
 		return "redirect:/guest/getList";
 	}
+
+	@PostMapping("/modify")
+	public String modify(GuestDto dto) {
+		service.modify(dto);
+		return "redirect:/guest/getList";
+	}
+
 
 }

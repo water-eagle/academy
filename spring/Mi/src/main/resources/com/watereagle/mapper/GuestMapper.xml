@@ -23,8 +23,26 @@
 		DELETE FROM tbl_guest WHERE bno = #{bno}
 	</select>
 	
-	<!-- 방명력 작성 -->
+	<!-- #{btext} << 마이바티스 문법임. -->
+	<!--
+		매퍼 인터페이스의 write 함수의 매개변수로 넘어오는 값을 받아 처리하는 sql문임.
+		
+		주의할 부분이 GuestDto 객체가 매개변수로 넘어오는데
+		
+		마이바티스 변수 #{btext} 를 써도 해당 값을 뽑아옴.
+		
+		해당 값은 btext 멤버변수 값을 말함.
+		(내부적으론 getBtext 함수를 호출해서 얻어옴)		
+	-->
+	
+	<!-- 방명록 작성 -->
 	<select id="write" resultType="com.watereagle.dto.GuestDto">
 		INSERT INTO tbl_guest (btext) VALUES (#{btext})
 	</select>
+	
+	<update id="modify">
+		UPDATE tbl_guest 
+		SET btext = #{btext} 
+		WHERE bno = #{bno}
+	</update>
 </mapper>
