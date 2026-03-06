@@ -11,7 +11,7 @@
 <h1>
 	Hello world!  
 </h1>
-
+<img src="/resources/cat.jpg"> <!-- 고양이 예시용(출력 안 되는 게 정상) -->
 <P>  The time on the server is ${serverTime}. </P>
 <hr>
 	<div id="[Spring][1+2개발]" style="display: none">
