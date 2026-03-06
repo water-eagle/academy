@@ -4,16 +4,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="root" value="${pageContext.request.contextPath}" /><!-- el변수 cp에 경로저장 -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>방명록 - 글 목록</title>
+<link rel="stylesheet" href="/resources/common.css">
 </head>
 <body>
 	<h1>방명록</h1>
 	<h2>글목록(일반)</h2>
-	<a href="/guest/write">글쓰기</a>
+	<a href="${root}/guest/write">글쓰기</a>
 	<table>
 		<tr>
 			<td>번호</td>
@@ -30,7 +32,7 @@
 		%>
 		<tr>
 			<td><%=bno%></td>
-			<td><a href="/guest/read?bno=<%=bno%>"> <%=btext%></a></td>
+			<td><a href="${root}/guest/read?bno=<%=bno%>"> <%=btext%></a></td>
 		</tr>
 		<%
 		}
@@ -40,17 +42,17 @@
 
 	<h2>글목록(JSTL EL 적용)</h2>
 	<!-- jstl 로 처리하면 더 짧게 가능 -->
-	<a href="/guest/write">글쓰기</a>
+	<a href="${root}/guest/write">글쓰기</a>
 	<table>
 		<tr>
 			<td>번호</td>
 			<td>내용</td>
 		</tr>
 		<c:forEach var="guest" items="${list}">
-		<tr>
-			<td>${guest.bno}</td>
-			<td><a href="/guest/read?bno=${guest.bno}">${guest.btext}</a></td>
-		</tr>
+			<tr>
+				<td>${guest.bno}</td>
+				<td><a href="${root}/guest/read?bno=${guest.bno}">${guest.btext}</a></td>
+			</tr>
 		</c:forEach>
 	</table>
 	<hr>
