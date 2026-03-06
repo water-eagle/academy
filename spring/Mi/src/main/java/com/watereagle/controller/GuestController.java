@@ -21,8 +21,8 @@ public class GuestController {
 	private GuestService service;
 
 	@GetMapping("/getList")
-	public void getList(Model model) { // 매개변수에 Model m 식으로 작성하면 되면, 스프잉이 알아서 모델 객체를 만들어서 넘겨줌.
-		model.addAttribute("list", service.getList());
+	public void getList(int currentPage, Model model) { // 매개변수에 Model m 식으로 작성하면 되면, 스프잉이 알아서 모델 객체를 만들어서 넘겨줌.
+		model.addAttribute("list", service.getList(currentPage));
 	}
 
 	@GetMapping({"/read", "/modify"})

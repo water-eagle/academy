@@ -18,9 +18,9 @@ public class GuestServiceImpl implements GuestService {
 	private GuestMapper mapper;
 
 	@Override
-	public ArrayList<GuestDto> getList() {
+	public ArrayList<GuestDto> getList(int currentPage) {
 		log.info("비지니스 계층===========");
-		return mapper.getList();
+		return mapper.getList(currentPage);
 	}
 
 	@Override
