@@ -16,8 +16,8 @@ String btext = read.getBtext();
 </head>
 <body>
 	<form action="${root}/guest/modify" method="post">
-		<input type="hidden" name="bno" value='<%=bno%>'><br>
-		<textarea name='btext' placeholder="글 내용 여기에 입력" rows="8" cols="24"><%=btext%></textarea><br>
+		<input type="hidden" name="bno" value='${read.bno}'><br>
+		<textarea name='btext' placeholder="글 내용 여기에 입력" rows="8" cols="24">${read.btext}</textarea><br>
 		<input type="submit" value="수정하기"><br>
 	</form>
 </body>
