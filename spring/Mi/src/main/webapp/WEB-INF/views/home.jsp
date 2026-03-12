@@ -24,7 +24,7 @@
 
 	<div id="[Spring][방명록]">
 		<img src="/resources/cat.jpg">
-		<h1><a href="${root}/guest/getList?currentPage=1">[Spring][방명록]</a></h1>
+		<h1><a href="${root}/guest/getList">[Spring][방명록]</a></h1>
 	</div>
 
 </body>
