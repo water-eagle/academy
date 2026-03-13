@@ -30,5 +30,14 @@
 	<div id="[Spring][회원가입]">
 		<a href="${root}/member/reg">회원가입</a><hr>
 	</div>
+	
+	<div id="[Spring][로그인]">
+		<form action="${root}/member/login">
+			<input name="id" placeholder="id:">
+			<input name="pw" placeholder="pw:">
+			<input type="submit" value="로그인">
+		</form>
+		<p>세션에 저장된 아이디: ${savedId}</p>
+	</div>
 </body>
 </html>

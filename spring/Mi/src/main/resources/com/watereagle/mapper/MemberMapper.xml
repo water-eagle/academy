@@ -4,6 +4,11 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.watereagle.mapper.MemberMapper">
 	<insert id="reg">
-		insert into mi_member (id,pw,name) values (#{id},#{pw},#{name})
-	</insert>		
+		insert into mi_member (id,pw,name) values
+		(#{id},#{pw},#{name})
+	</insert>
+	<select id="login"
+		resultType="com.watereagle.dto.MemberDto">
+		select * from mi_member where id = #{id} and pw = #{pw}
+	</select>
 </mapper>

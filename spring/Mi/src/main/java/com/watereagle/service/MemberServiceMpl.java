@@ -20,4 +20,14 @@ public class MemberServiceMpl implements MemberService {
 		mapper.reg(m);
 	}
 
+	@Override
+	public String login(MemberDto m) {
+		MemberDto x = mapper.login(m);
+		if (x != null) {
+			// 로그인 성공
+			return x.getId();
+		}
+		return null;
+	}
+
 }

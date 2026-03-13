@@ -5,4 +5,6 @@ import com.watereagle.dto.MemberDto;
 public interface MemberMapper {
 	public void reg(MemberDto m);
 
+	public MemberDto login(MemberDto m);
+
 }
