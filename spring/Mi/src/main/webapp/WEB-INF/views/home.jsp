@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="root" value="${pageContext.request.contextPath}" /><!-- el변수 cp에 경로저장 -->
+<c:set var="root" value="${pageContext.request.contextPath}" />
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -26,6 +26,9 @@
 		<img src="/resources/cat.jpg">
 		<h1><a href="${root}/guest/getList">[Spring][방명록]</a></h1>
 	</div>
-
+	
+	<div id="[Spring][회원가입]">
+		<a href="${root}/member/reg">회원가입</a><hr>
+	</div>
 </body>
 </html>
