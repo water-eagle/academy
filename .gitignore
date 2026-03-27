@@ -702,3 +702,7 @@ js/q/q8/q008/
 js/q/pj(example)/
 
 java/KioskCatCafe(V0.0.9)/
+java/Servers/*
+
+### 설정값 ###
+*.properties
