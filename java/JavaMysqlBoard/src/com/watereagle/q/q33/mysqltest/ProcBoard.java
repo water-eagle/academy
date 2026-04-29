@@ -12,9 +12,9 @@ public class ProcBoard {
 	void run() {
 		Display.showTitle();
 		Db.dbInit();
+		Cw.wn("전체 글수:"+Db.getPostCount());
 
 		loop: while (true) {
-			Db.dbPostCount();
 			Display.showMainMenu();
 			String cmd = Ci.r("명령입력");
 			switch (cmd) {

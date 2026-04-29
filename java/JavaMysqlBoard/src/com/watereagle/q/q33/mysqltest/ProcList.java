@@ -12,13 +12,22 @@ public class ProcList {
 		int startIndex = 0; // 현재 페이지의 첫 글 인덱스
 		int currentPage = 1; // 현재 페이지
 
+		// -[x] 전체 페이지 수를 구해야하고, 그다음 총 페이지 수를 구해야함
+		int totalPage = 0;
+		if (Db.getPostCount() % PER_PAGE > 0) {
+			totalPage = Db.getPostCount() / PER_PAGE + 1;
+		} else {
+			totalPage = Db.getPostCount() / PER_PAGE;
+		}
+
+		Cw.wn("총 페이지 수: " + totalPage);
 		String cmd;
 		while (true) {
+			// todo: 없는 페이지 입력 못하게 하는 처리 추가
 			cmd = Ci.r("페이지 번호 입력 | 뒤로가기[x]");
 			if (cmd.equals("x")) {
 				break;
 			}
-			currentPage = Integer.parseInt(cmd);
 
 			startIndex = (currentPage - 1) * PER_PAGE;
 			Display.titleList();

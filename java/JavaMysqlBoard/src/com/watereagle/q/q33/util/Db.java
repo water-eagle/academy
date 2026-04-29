@@ -40,4 +40,17 @@ public class Db {
 			e.printStackTrace();
 		}
 	}
+	static public int getPostCount() { // 게시판 총 개수 호출 - intCount
+		String count ="";
+		try {
+			Db.result = Db.st.executeQuery("select count(*) from board");
+			Db.result.next();
+			count = Db.result.getString("count(*)");
+			Cw.wn("글 수:" + count);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		int intCount=Integer.parseInt(count);
+		return intCount;
+	}
 }

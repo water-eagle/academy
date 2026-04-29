@@ -1,0 +1,22 @@
+{
+  "monster": [
+    {
+      "name": "오크",
+      "hp": 100
+    },
+    {
+      "name": "엘프",
+      "hp": 100
+    },
+    {
+      "name": "인간",
+      "hp": 100
+    }
+  ],
+
+  "커피": [
+    { "name": "아메리카노", "price_won": 2000, "caffein": true },
+    { "name": "카페라떼", "price_won": 2900, "caffein": true },
+    { "name": "딸기라떼", "price_won": 3400, "caffein": false }
+  ]
+}
