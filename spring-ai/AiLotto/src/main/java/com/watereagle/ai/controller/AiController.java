@@ -15,7 +15,7 @@ public class AiController {
     }
 
     @GetMapping("/ai")
-    public String completion(@RequestParam(defaultValue = "안녕 제미나이!") String message) {
+    public String completion(@RequestParam(defaultValue = "스프링 AI 프레임워크에 대한 전망은 어때?") String message) {
         return chatClient.prompt().user(message).call().content();
     }
 }

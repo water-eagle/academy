@@ -1,0 +1,315 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Thymeleaf 문법 총정리</title>
+	<style>
+		body {
+			font-family: Arial;
+			margin: 20px;
+		}
+
+		section {
+			margin: 30px 0;
+			padding: 20px;
+			border: 1px solid #ddd;
+		}
+
+		h2 {
+			color: #333;
+			border-bottom: 2px solid #333;
+			padding-bottom: 10px;
+		}
+
+		code {
+			background: #f4f4f4;
+			padding: 2px 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>🐱 Thymeleaf 문법 총정리 (EL/JSTL 비교)</h1>
+
+	<!-- ==================== 1. 변수 출력 ==================== -->
+	<section>
+		<h2>1. 변수 출력 (th:text)</h2>
+
+		<!-- JSP/EL: ${catName} -->
+		<!-- Thymeleaf: th:text="${catName}" -->
+
+		<p>고양이 이름: <span th:text="${catName}">기본값</span></p>
+		<p>고양이 나이: <span th:text="${catAge}">0</span>살</p>
+
+		<!-- HTML 태그 포함 출력: th:utext (unescaped text) -->
+		<p th:utext="${catName}">기본값</p>
+	</section>
+
+	<!-- ==================== 2. 속성 설정 ==================== -->
+	<section>
+		<h2>2. 속성 설정</h2>
+
+		<!-- th:href - 링크 -->
+		<a th:href="@{/cats}">고양이 목록</a><br />
+		<a th:href="@{/cats/{id}(id=${catAge})}">고양이 상세</a><br />
+		<a th:href="@{/cats(name=${catName},age=${catAge})}">쿼리 파라미터</a>
+
+		<!-- th:src - 이미지 -->
+		<img th:src="@{/images/cat.jpg}" alt="고양이" /><br />
+
+		<!-- th:value - 폼 -->
+		<input type="text" th:value="${catName}" /><br />
+
+		<!-- th:class - CSS 클래스 -->
+		<div th:class="${isHungry} ? 'hungry' : 'full'">배고픔 상태</div>
+
+		<!-- 여러 속성 한번에 -->
+		<input type="text" th:attr="value=${catName},placeholder='이름 입력'" />
+	</section>
+
+	<!-- ==================== 3. 조건문 ==================== -->
+	<section>
+		<h2>3. 조건문 (th:if / th:unless)</h2>
+
+		<!-- JSP: <c:if test="${isHungry}"> -->
+		<!-- Thymeleaf: th:if="${isHungry}" -->
+
+		<div th:if="${isHungry}">🍽️ 고양이가 배고파요!</div>
+
+		<div th:unless="${isHungry}">😴 고양이가 배불러요</div>
+
+		<!-- else 역할: th:if + th:unless 조합 -->
+		<div th:if="${isSleeping}">자는 중...</div>
+		<div th:unless="${isSleeping}">깨어있음!</div>
+
+		<!-- 삼항 연산자 -->
+		<p th:text="${isHungry} ? '배고픔' : '배부름'"></p>
+	</section>
+
+	<!-- ==================== 4. switch-case ==================== -->
+	<section>
+		<h2>4. switch-case (th:switch)</h2>
+
+		<div th:switch="${catAge}">
+			<p th:case="1">아기 고양이</p>
+			<p th:case="2">어린 고양이</p>
+			<p th:case="3">젊은 고양이</p>
+			<p th:case="*">나이 많은 고양이</p>
+		</div>
+	</section>
+
+	<!-- ==================== 5. 반복문 ==================== -->
+	<section>
+		<h2>5. 반복문 (th:each)</h2>
+
+		<!-- JSP: <c:forEach var="cat" items="${cats}"> -->
+		<!-- Thymeleaf: th:each="cat : ${cats}" -->
+
+		<h3>고양이 목록:</h3>
+		<ul>
+			<li th:each="cat : ${cats}">
+				<span th:text="${cat.name}">이름</span> -
+				<span th:text="${cat.age}">나이</span>살 -
+				<span th:text="${cat.color}">색깔</span>
+			</li>
+		</ul>
+
+		<!-- 반복 상태 변수 사용 -->
+		<h3>인덱스 포함:</h3>
+		<table border="1">
+			<tr>
+				<th>번호</th>
+				<th>이름</th>
+				<th>나이</th>
+				<th>상태</th>
+			</tr>
+			<tr th:each="cat, stat : ${cats}">
+				<td th:text="${stat.index}">0</td>
+				<!-- 0부터 시작 -->
+				<td th:text="${cat.name}">이름</td>
+				<td th:text="${cat.age}">나이</td>
+				<td>
+					<span th:if="${stat.first}">첫번째</span>
+					<span th:if="${stat.last}">마지막</span>
+					<span th:text="${stat.count}">순번</span> /
+					<span th:text="${stat.size}">전체</span>
+				</td>
+			</tr>
+		</table>
+
+		<!-- stat 속성들:
+             index: 0부터 시작 인덱스
+             count: 1부터 시작 순번
+             size: 전체 크기
+             first: 첫번째면 true
+             last: 마지막이면 true
+             even: 짝수번째면 true
+             odd: 홀수번째면 true
+        -->
+	</section>
+
+	<!-- ==================== 6. 객체 접근 ==================== -->
+	<section>
+		<h2>6. 객체 접근</h2>
+
+		<!-- JSP/EL: ${cat.name} -->
+		<!-- Thymeleaf: ${cat.name} (동일!) -->
+
+		<p>이름: <span th:text="${cat.name}">기본이름</span></p>
+		<p>나이: <span th:text="${cat.age}">0</span>살</p>
+		<p>색깔: <span th:text="${cat.color}">색깔</span></p>
+	</section>
+
+	<!-- ==================== 7. 폼 (th:object, th:field) ==================== -->
+	<section>
+		<h2>7. 폼 바인딩</h2>
+
+		<!-- 객체 바인딩 -->
+		<form th:object="${cat}" method="post" action="/save">
+			<!-- th:field는 id, name, value를 자동 설정 -->
+			<label>이름: <input type="text" th:field="*{name}" /></label><br />
+			<label>나이: <input type="number" th:field="*{age}" /></label><br />
+			<label>색깔: <input type="text" th:field="*{color}" /></label><br />
+			<button type="submit">저장</button>
+		</form>
+
+		<!-- *{...}는 th:object의 속성 접근 -->
+		<!-- ${cat.name}과 *{name}은 같음 (th:object 내에서) -->
+	</section>
+
+	<!-- ==================== 8. 링크 표현식 ==================== -->
+	<section>
+		<h2>8. 링크 표현식 @{...}</h2>
+
+		<!-- 정적 링크 -->
+		<a th:href="@{/home}">홈</a><br />
+
+		<!-- 경로 변수 -->
+		<a th:href="@{/cats/{id}(id=123)}">고양이 123</a><br />
+
+		<!-- 쿼리 파라미터 -->
+		<a th:href="@{/search(name='나비',age=3)}">검색</a><br />
+		<!-- 결과: /search?name=나비&age=3 -->
+
+		<!-- 변수 사용 -->
+		<a th:href="@{/cats/{id}(id=${catAge})}">내 고양이</a>
+	</section>
+
+	<!-- ==================== 9. 문자열 연산 ==================== -->
+	<section>
+		<h2>9. 문자열 연산</h2>
+
+		<!-- 문자열 합치기: + -->
+		<p th:text="'고양이 이름은 ' + ${catName} + '입니다'"></p>
+
+		<!-- 문자열 리터럴 치환: |...| -->
+		<p th:text="|고양이 이름은 ${catName}입니다|"></p>
+
+		<!-- 조건 포함 -->
+		<p th:text="|${catName}는 ${catAge}살이고, ${isHungry ? '배고파요' : '배불러요'}|"></p>
+	</section>
+
+	<!-- ==================== 10. 비교 연산 ==================== -->
+	<section>
+		<h2>10. 비교 연산</h2>
+
+		<!-- >, <, >=, <=, ==, != -->
+		<div th:if="${catAge > 2}">2살 넘음</div>
+		<div th:if="${catAge >= 3}">3살 이상</div>
+		<div th:if="${catAge == 3}">정확히 3살</div>
+		<div th:if="${catAge != 5}">5살 아님</div>
+
+		<!-- gt, lt, ge, le, eq, ne (HTML에서 < > 문제 피하기) -->
+		<div th:if="${catAge gt 2}">2살 넘음 (gt 사용)</div>
+	</section>
+
+	<!-- ==================== 11. 인라인 표현식 ==================== -->
+	<section>
+		<h2>11. 인라인 (th:inline)</h2>
+
+		<!-- JavaScript 인라인 -->
+		<script th:inline="javascript">
+			/* Thymeleaf의 [[...]] 문법을 LSP가 인식하지 못해서 오류 발생 */
+			var catName = [[${catName}]];  // "나비"
+			var catAge = [[${catAge}]];    // 3
+			console.log(catName + "는 " + catAge + "살");
+		</script>
+
+		<!-- 텍스트 인라인 -->
+		<p th:inline="text">
+			고양이 이름은 [[${catName}]]이고, [[${catAge}]]살입니다.
+		</p>
+	</section>
+
+	<!-- ==================== 12. 주석 ==================== -->
+	<section>
+		<h2>12. 주석</h2>
+
+		<!-- HTML 주석: 브라우저에서 보임 -->
+
+		<!--/* Thymeleaf 주석: 서버에서만 보임 */-->
+
+		<!--/*-->
+		<p>이 부분은 Thymeleaf 처리 시 제거됨</p>
+		<!--*/-->
+	</section>
+
+	<!-- ==================== 13. 유틸리티 객체 ==================== -->
+	<section>
+		<h2>13. 유틸리티 객체 (#...)</h2>
+
+		<!-- 날짜 -->
+		<p th:text="${#temporals.format(#temporals.createNow(), 'yyyy-MM-dd HH:mm:ss')}"></p>
+
+		<!-- 문자열 -->
+		<p th:text="${#strings.toUpperCase(catName)}">대문자</p>
+		<p th:text="${#strings.length(catName)}">길이</p>
+
+		<!-- 숫자 -->
+		<p th:text="${#numbers.formatDecimal(catAge, 1, 2)}">숫자 포맷</p>
+
+		<!-- 리스트 -->
+		<p th:text="${#lists.size(cats)}">리스트 크기</p>
+		<p th:if="${#lists.isEmpty(cats)}">리스트 비어있음</p>
+	</section>
+
+	<!-- ==================== EL/JSTL vs Thymeleaf 비교표 ==================== -->
+	<section>
+		<h2>📋 EL/JSTL vs Thymeleaf 비교</h2>
+		<table border="1" style="width: 100%; border-collapse: collapse">
+			<tr>
+				<th>기능</th>
+				<th>JSP/JSTL</th>
+				<th>Thymeleaf</th>
+			</tr>
+			<tr>
+				<td>변수 출력</td>
+				<td><code>${name}</code></td>
+				<td><code>th:text="${name}"</code></td>
+			</tr>
+			<tr>
+				<td>조건문</td>
+				<td><code>&lt;c:if test="${condition}"&gt;</code></td>
+				<td><code>th:if="${condition}"</code></td>
+			</tr>
+			<tr>
+				<td>반복문</td>
+				<td><code>&lt;c:forEach var="item" items="${list}"&gt;</code></td>
+				<td><code>th:each="item : ${list}"</code></td>
+			</tr>
+			<tr>
+				<td>링크</td>
+				<td><code>&lt;c:url value="/path"/&gt;</code></td>
+				<td><code>th:href="@{/path}"</code></td>
+			</tr>
+			<tr>
+				<td>폼 바인딩</td>
+				<td><code>&lt;form:form&gt; (Spring Form태그)</code></td>
+				<td><code>th:object="${obj}" th:field="*{prop}"</code></td>
+			</tr>
+		</table>
+	</section>
+</body>
+
+</html>
