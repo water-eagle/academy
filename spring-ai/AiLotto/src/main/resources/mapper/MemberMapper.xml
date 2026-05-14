@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.watereagle.ai.mapper.MemberMapper">
+
+<!--    <insert id="join" parameterType="MemberDto">-->
+    <insert id="join">
+        INSERT INTO sn_member (id, pw, name)
+        VALUES (#{id}, #{pw}, #{name})
+    </insert>
+
+</mapper>
+
