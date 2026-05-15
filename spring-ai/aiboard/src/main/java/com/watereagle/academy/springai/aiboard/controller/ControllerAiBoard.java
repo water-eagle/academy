@@ -1,5 +1,7 @@
 package com.watereagle.academy.springai.aiboard.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +28,13 @@ public class ControllerAiBoard {
         Post post = mapper.read(no);
         model.addAttribute("post", post);
         return "read";
+    }
+
+    @GetMapping("/")
+    public String list(Model model) {
+        List<Post> posts = mapper.getList();
+        model.addAttribute("posts", posts);
+        return "list";
     }
 
 }
