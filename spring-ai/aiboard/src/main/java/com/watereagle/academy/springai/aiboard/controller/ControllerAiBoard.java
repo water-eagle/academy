@@ -49,4 +49,17 @@ public class ControllerAiBoard {
         return "redirect:/";
     }
 
+    @GetMapping("edit")
+    public String edit(@RequestParam("no") int no, Model model) {
+        Post post = mapper.read(no);
+        model.addAttribute("post", post);
+        return "edit";
+    }
+
+    @GetMapping("editProc")
+    public String editProc(Post post) {
+        mapper.edit(post);
+        return "redirect:/";
+    }
+
 }

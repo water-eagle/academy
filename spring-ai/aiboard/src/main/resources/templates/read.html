@@ -25,13 +25,9 @@
       </div>
 
       <hr />
-
-      <!--    <div style="font-size: 24px; text-align: center;" th:if="${post.emoji != null}">-->
-      <!--        글의 분위기: <span th:text="${post.emoji}">😊</span>-->
-      <!--    </div>-->
-
       <div>
         <a href="/">목록으로</a>
+        <a th:href="@{/edit(no=${post.no})}">글 수정</a>
         <a th:href="@{/del(no=${post.no})}">지우기</a>
       </div>
     </div>

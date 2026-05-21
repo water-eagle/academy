@@ -1,0 +1,39 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI 게시판</title>
+  </head>
+  <body>
+    <div>
+      <form action="editProc" th:object="${post}">
+        <input type="hidden" th:field="*{no}" />
+        <input type="hidden" th:field="*{id}" />
+        <div>
+          <p th:text="|글번호: ${post.no}|">글번호: 1</p>
+          <input type="text" th:field="*{title}" />
+          <div>
+            작성자: <span th:text="${post.id}">파티나</span> | 작성일:
+            <span th:text="${#temporals.format(post.regDate, 'yyyy-MM-dd')}"
+              >2026-05-12</span
+            >
+          </div>
+        </div>
+
+        <hr />
+
+        <div>
+          <textarea th:field="*{content}"></textarea>
+        </div>
+        <input type="submit" value="수정" />
+      </form>
+
+      <hr />
+
+      <div>
+        <a href="/">목록으로</a>
+        <a th:href="@{/del(no=${post.no})}">지우기</a>
+      </div>
+    </div>
+  </body>
+</html>
