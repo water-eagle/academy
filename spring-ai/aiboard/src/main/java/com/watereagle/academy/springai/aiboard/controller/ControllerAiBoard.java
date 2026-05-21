@@ -37,4 +37,16 @@ public class ControllerAiBoard {
         return "list";
     }
 
+    @GetMapping("write")
+    public String write() {
+        return "write";
+    }
+
+    @GetMapping("writeProc")
+    public String writeProc(Post post) {
+        post.setId("kitty");
+        mapper.write(post);
+        return "redirect:/";
+    }
+
 }

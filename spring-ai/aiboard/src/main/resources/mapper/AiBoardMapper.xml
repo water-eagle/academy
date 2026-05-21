@@ -4,6 +4,7 @@
 <mapper namespace="com.watereagle.academy.springai.aiboard.mapper.AiBoardMapper">
 
     <delete id="del"> DELETE FROM ai_board WHERE no=#{no} </delete>
-    <select id="read">SELECT * FROM ai_board WHERE no=#{no} </select>
-    <select id="getList">SELECT * FROM ai_board ORDER BY no DESC</select>
+    <select id="read"> SELECT * FROM ai_board WHERE no=#{no} </select>
+    <select id="getList"> SELECT * FROM ai_board ORDER BY no DESC </select>
+    <select id="write"> INSERT INTO ai_board (title, content, id) VALUES (#{title}, #{content}, #{id}) </select>
 </mapper>

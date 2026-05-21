@@ -14,4 +14,6 @@ public interface AiBoardMapper {
     public Post read(int no);
 
     List<Post> getList();
+
+    void write(Post post);
 }
