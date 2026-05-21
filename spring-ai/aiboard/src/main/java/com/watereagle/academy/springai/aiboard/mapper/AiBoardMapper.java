@@ -13,7 +13,7 @@ public interface AiBoardMapper {
 
     public Post read(int no);
 
-    List<Post> getList();
+    List<Post> getList(int startIndex);
 
     void write(Post post);
 

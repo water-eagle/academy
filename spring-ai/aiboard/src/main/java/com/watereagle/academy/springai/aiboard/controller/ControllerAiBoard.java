@@ -14,26 +14,26 @@ import com.watereagle.academy.springai.aiboard.mapper.AiBoardMapper;
 @Controller
 public class ControllerAiBoard {
     @Autowired
-    private AiBoardMapper mapper;
+    private AiBoardMapper service;
 
     @GetMapping("/del")
     public String del(@RequestParam("no") int no) {
-        int n = mapper.del(no);
+        int n = service.del(no);
         System.out.println("삭제된 글 수:" + n);
         return "redirect:/";
     }
 
     @GetMapping("/read")
     public String read(@RequestParam("no") int no, Model model) {
-        Post post = mapper.read(no);
+        Post post = service.read(no);
         model.addAttribute("post", post);
         return "read";
     }
 
     @GetMapping("/")
-    public String list(Model model) {
-        List<Post> posts = mapper.getList();
-        model.addAttribute("posts", posts);
+    public String list(@RequestParam(value = "page", defaultValue = "1") int page, Model model) {
+        List<Post> posts = service.getList(3); 
+        model.addAttribute("posts", posts); 
         return "list";
     }
 
@@ -45,20 +45,20 @@ public class ControllerAiBoard {
     @GetMapping("writeProc")
     public String writeProc(Post post) {
         post.setId("kitty");
-        mapper.write(post);
+        service.write(post);
         return "redirect:/";
     }
 
     @GetMapping("edit")
     public String edit(@RequestParam("no") int no, Model model) {
-        Post post = mapper.read(no);
+        Post post = service.read(no);
         model.addAttribute("post", post);
         return "edit";
     }
 
     @GetMapping("editProc")
     public String editProc(Post post) {
-        mapper.edit(post);
+        service.edit(post);
         return "redirect:/";
     }
 

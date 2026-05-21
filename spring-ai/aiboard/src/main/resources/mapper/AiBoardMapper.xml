@@ -5,9 +5,9 @@
 
     <delete id="del"> DELETE FROM ai_board WHERE no=#{no} </delete>
     <select id="read"> SELECT * FROM ai_board WHERE no=#{no} </select>
-    <select id="getList"> SELECT * FROM ai_board ORDER BY no DESC </select>
-    <select id="write"> INSERT INTO ai_board (title, content, id) VALUES (#{title}, #{content},
-        #{id}) </select>
+    <select id="getList" resultType="Post"> SELECT * FROM ai_board ORDER BY NO DESC LIMIT #{startIndex}, 3</select>
+    <insert id="write"> INSERT INTO ai_board (title, content, id) VALUES (#{title}, #{content},
+        #{id}) </insert>
     <update id="edit"> UPDATE ai_board SET title=#{title}, content=#{content} WHERE no=#{no} </update>
 
 </mapper>
